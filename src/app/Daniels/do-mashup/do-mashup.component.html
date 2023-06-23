@@ -1,0 +1,65 @@
+<app-header title="DPS170 Mashup - Planned Distribution Orders"></app-header>
+
+<div class="main-container">
+  <div class="row-clear-fix filter-head">
+    <div class="twelve columns">
+      <form>
+        <div class="compound-field">
+          <div class="field">
+            <label>Release date</label>
+            <input soho-datepicker id="fromDate" name="fromDate" dateFormat="dd/MM/yyyy" mode="standard"
+            placeholder="dd/MM/yyyy" />
+              -
+            <input soho-datepicker id="toDate" name="toDate" dateFormat="dd/MM/yyyy" mode="standard"
+              placeholder="dd/MM/yyyy" />
+          </div>
+  
+          <div class="field">
+            <label>To warehouse</label>
+            <select soho-dropdown name="WHLO">
+                <option value="A01">A01 - Main Warehouse</option>
+                <option value="B01">B01 - Stock Warehouse</option>
+            </select>
+          </div>
+  
+          <div class="field">
+            <label></label>
+            <button soho-button="primary">Apply</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row-clear-fix list-detail-container">
+    <section class="twelve columns data-container">
+      <div class="list-datagrid-container">
+          <soho-toolbar [maxVisibleButtons]="6" [rightAligned]="true">
+            <soho-toolbar-button-set>
+               <!-- buttons -->
+              <button soho-button="tertiary" icon="document2"
+                (click)="toggleHideMaterialGrid()"
+                [disabled]="dataGrid?.selectedRows().length === 0 || dataGrid?.selectedRows().length > 1"
+                >Check Material Plan</button>
+              <button soho-button="tertiary" icon="check2"
+                  [disabled]="dataGrid?.selectedRows().length === 0"
+               >Release DO</button>
+            </soho-toolbar-button-set>
+          </soho-toolbar>
+            <div soho-datagrid="auto" [gridOptions]="gridOptions" [columns]="columns" (rowClicked)="rowClicked()"></div>
+          </div>
+        
+        <div class="list-datagrid-container padding-bottom-lg" [class.hidden]="hideMaterialGrid">
+          <soho-toolbar>
+            <soho-toolbar-title>Material</soho-toolbar-title>
+          </soho-toolbar>
+          <div soho-datagrid="auto" [gridOptions]="materialGridOptions" [columns]="materialColumns" > </div>
+        </div>
+      <!-- <div class="padding-bottom-lg" [class.hidden]="hideMaterialGrid">
+        <h3 class="fieldset-title padding-top-zero">Material Plan</h3>
+        <div soho-datagrid="auto" [gridOptions]="materialGridOptions" [columns]="materialColumns" style="height: 350px"> </div>
+      </div> -->
+
+    </section>
+ </div>
+</div>

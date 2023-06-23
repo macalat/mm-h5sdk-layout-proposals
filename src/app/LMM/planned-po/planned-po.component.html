@@ -1,0 +1,105 @@
+<app-header title="Planned PO Mashup"></app-header>
+
+<div soho-tabs class="header-tabs">
+  <div soho-tab-list-container>
+    <ul soho-tab-list>
+      <li soho-tab><a soho-tab-title tabId="tabs-main">Main</a></li>
+      <li soho-tab><a soho-tab-title tabId="tabs-aggregated">Aggregated</a></li>
+      <li soho-tab><a soho-tab-title tabId="tabs-change">Change</a></li>
+    </ul>
+  </div>
+</div>
+
+<div soho-tab-panel-container>
+  <div soho-tab-panel tabId="tabs-main">
+    <div class="full-width">
+      <div class="row">
+        <div class="twelve columns">
+          <div class="compound-field">
+            <div class="field">
+              <label soho-label class="padding-top-xs">Warehouse</label>
+              <select soho-dropdown name="WHLO">
+                <option>001 - Main Warehouse</option>
+                <option>B01 - Ran Repo</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label soho-label class="padding-top-xs">Supplier</label>
+              <input name="SUNO" class="input-mm text-uppercase" />
+            </div>
+
+            <div class="field" style="margin-right: 100px">
+              <label soho-label class="padding-top-xs">Supply Chain</label>
+              <select class="inpu-sm" soho-dropdown name="SCHN">
+                <option>0 - All</option>
+                <option>1 - SCO</option>
+                <option>2 - No SCO</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label></label>
+              <button soho-button="primary">Aggregated</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="twelve columns">
+          <div class="title"></div>
+          <div class="scrollable-flex">
+            <div
+              soho-datagrid="auto"
+              [rowHeight]="'medium'"
+              [selectable]="'mixed'"
+              [resizeMode]="'flex'"
+              [columns]="[
+                { id: 'COL1', field: 'COL1', name: 'Supplier No' },
+                { id: 'COL2', field: 'COL2', name: 'Priority' },
+                { id: 'COL3', field: 'COL3', name: 'Ortp' },
+                { id: 'COL4', field: 'COL4', name: 'Del Date' },
+                { id: 'COL5', field: 'COL5', name: 'Item' },
+                { id: 'COL6', field: 'COL6', name: 'Name' },
+                { id: 'COL7', field: 'COL7', name: 'Purch Price', align: 'right' },
+                { id: 'COL8', field: 'COL8', name: 'Quantity', align: 'right' },
+                { id: 'COL9', field: 'COL9', name: 'U/M' },
+                { id: 'COL10', field: 'COL10', name: 'Net Weight', align: 'right' },
+                { id: 'COL11', field: 'COL11', name: 'Dist grp' },
+                { id: 'COL11', field: 'COL11', name: 'Message' },
+                { id: 'COL11', field: 'COL11', name: 'Sts' },
+                { id: 'COL11', field: 'COL11', name: 'SCO No' },
+                { id: 'COL11', field: 'COL11', name: 'Action Message' },
+                { id: 'COL12', field: 'COL12', name: 'CO-sort ID' },
+              ]"
+              [dataset]="[
+                 { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: '230.00', COL8: '1', COL9: 'KG', COL10: '21.00', COL11: 'Magenta' },
+                 { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: '230.00', COL8: '1', COL9: 'KG', COL10: '21.00', COL11: 'Magenta' },
+                 { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: '230.00', COL8: '1', COL9: 'KG', COL10: '21.00', COL11: 'Magenta' },
+                 { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: '230.00', COL8: '1', COL9: 'KG', COL10: '21.00', COL11: 'Magenta' },
+                 { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: '230.00', COL8: '1', COL9: 'KG', COL10: '21.00', COL11: 'Magenta' },
+                 { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: '230.00', COL8: '1', COL9: 'KG', COL10: '21.00', COL11: 'Magenta' },
+                 { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: '230.00', COL8: '1', COL9: 'KG', COL10: '21.00', COL11: 'Magenta' },
+                ]"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div soho-tab-panel tabId="tabs-aggregated">
+    <div class="row">
+      <div class="twelve columns">
+        <p>aggregated tab</p>
+      </div>
+    </div>
+  </div>
+  <div soho-tab-panel tabId="tabs-change">
+    <div class="row">
+      <div class="twelve columns">
+        <p>change tab</p>
+      </div>
+    </div>
+  </div>
+</div>

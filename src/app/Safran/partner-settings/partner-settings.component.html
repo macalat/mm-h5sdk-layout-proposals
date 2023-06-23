@@ -1,0 +1,153 @@
+<app-header title="EDI001 - EDI Partnership"></app-header>
+
+<div style="height: calc(100vh - 60px);">
+  <div class="row padding-top-lg">
+    <div class="five columns margin-right-lg">
+      <soho-toolbar [maxVisibleButtons]="6" [rightAligned]="true">
+        <soho-toolbar-button-set>
+          <!-- buttons -->
+          <button soho-button="icon" icon="add" title="Add" [disabled]="onProgress" (click)="locked = false; action = 'Add'; onProgress = true"></button>
+          <button soho-button="icon" icon="edit" title="Edit" [disabled]="onProgress" (click)="locked = false; action = 'Edit'; onProgress = true"></button>
+          <button soho-button="icon" icon="copy" title="Copy" [disabled]="onProgress" (click)="locked = false; action = 'Copy'; onProgress = true"></button>
+          <button soho-button="icon" icon="delete" title="Delete" [disabled]="onProgress" (click)="onProgress = true"></button>
+          <button soho-button="icon" icon="refresh" title="Refresh" [disabled]="onProgress"></button>
+        </soho-toolbar-button-set>
+      </soho-toolbar>
+      <div style="background: white;">
+        <div soho-datagrid="auto" [gridOptions]="gridOptions" style="height: calc(100vh - 200px)"></div>
+      </div>
+    </div>
+    <div style="seven columns" class="scrollable">
+      <form #f="ngForm">
+        <h2 class="margin-left-lg margin-top-md margin-bottom-md" style="font-size: 2rem;">Detail ({{ action }})</h2>
+          <!-- <div class="padding-right-lg">
+            <soho-toolbar [hasMoreButton]="true" [favorButtonset]="true" [rightAligned]="true" [maxVisibleButtons]="11">
+                <soho-toolbar-title>{{  'Detail' | sohoTranslate }}</soho-toolbar-title>
+                <soho-toolbar-button-set>
+                  <button soho-button="btn" [disabled]="protected" icon="cancel" (click)="protected = true">{{ 'Cancel' | sohoTranslate }}</button>
+                  <button soho-button="primary" [disabled]="!f.form.valid || protected" icon="save" (click)="save()" [isSubmit]="true">{{ 'Save' | sohoTranslate }}</button>
+                </soho-toolbar-button-set>
+                <soho-toolbar-more-button></soho-toolbar-more-button>
+            </soho-toolbar>
+          </div> -->
+
+        <div class="detail-header">
+          <div class="row-clear-fix">
+              <div class="twelve columns">
+                <div class="m3-field">
+                    <div class="field hide-required">
+                      <label class="label required">Consignee</label>
+                      <input type="text" class="input-mm" name="EDIF"
+                          [readonly]="protected || isEditMode" [disabled]="protected || isEditMode"
+                          data-validate="required" required />
+                      <input type="text" class="input-lg margin-left-sm" name="IDEF"
+                          [readonly]="protected" [disabled]="protected" />
+                    </div>
+                    <div class="field hide-required">
+                      <label class="label required">Sender message</label>
+                      <input type="text" class="input-mm" name="EDIP"
+                          [readonly]="protected || isEditMode" [disabled]="protected || isEditMode"
+                          data-validate="required" required />
+                      <input type="text" class="input-lg margin-left-sm" name="IDEP"
+                          [readonly]="protected" [disabled]="protected" />
+                    </div>
+                </div>
+              </div>
+          </div>
+          <hr/>
+        </div>
+
+        <div class="detail-container row-clear-fix scrollable" style="height: calc(100vh - 250px)">
+          <div class="twelve columns">
+              <div class="m3-field">
+                <div class="field">
+                    <label class="label">Facility</label>
+                    <select soho-dropdown [cssClass]="'dropdown-short'" name="FACI" [disabled]="protected">
+                        <option>A01 - Main Facility</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label class="label">Order type</label>
+                    <select soho-dropdown [cssClass]="'dropdown-short'" name="ORTP" [disabled]="protected">
+                      <option>M20 - Normal Order</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label class="label">Customer</label>
+                    <select soho-dropdown [cssClass]="'dropdown-short'" name="CUNO" [disabled]="protected">
+                      <option>Y100001 - Sample customer</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label class="label">Organization</label>
+                    <input type="text" class="input-mm text-uppercase" name="RLA6"
+                      [readonly]="protected" [disabled]="protected" />
+                </div>
+                <div class="field">
+                    <label class="label">Invoicing party code</label>
+                    <input type="text" class="input-mm text-uppercase" name="INPA"
+                      [readonly]="protected" [disabled]="protected" />
+                </div>
+                <div class="field">
+                    <label class="label">Ignore Prix EDI</label>
+                    <input soho-checkbox type="checkbox" id="RFL2" name="RFL2" [disabled]="protected" />
+                    <label soho-label for="RFL2" [forCheckBox]="true" style="margin-top: 5px"></label>
+                </div>
+                <div class="field">
+                    <label class="label">EXT Invoice</label>
+                    <input soho-checkbox type="checkbox" id="RFL3" name="RFL3" [disabled]="protected" />
+                    <label soho-label for="RFL3" [forCheckBox]="true" style="margin-top: 5px"></label>
+                </div>
+                <div class="field">
+                    <label class="label">AWB Mandatory</label>
+                    <input soho-checkbox type="checkbox" id="RFL5" name="RFL5" [disabled]="protected" />
+                    <label soho-label for="RFL5" [forCheckBox]="true" style="margin-top: 5px"></label>
+                </div>
+                <div class="field">
+                    <label class="label">EDI Incoterms</label>
+                    <input soho-checkbox type="checkbox" id="RLF1" name="RLF1" [disabled]="protected" />
+                    <label soho-label for="RLF1" [forCheckBox]="true" style="margin-top: 5px"></label>
+                </div>
+                <div class="field">
+                    <label class="label">DOCT Control</label>
+                    <input soho-checkbox type="checkbox" id="RLF2" name="RLF2" [disabled]="protected" />
+                    <label soho-label for="RLF2" [forCheckBox]="true" style="margin-top: 5px"></label>
+                </div>
+                <div class="field">
+                    <label class="label">VAT No / FF07</label>
+                    <input soho-checkbox type="checkbox" id="RLF3" name="RLF3" [disabled]="protected" />
+                    <label soho-label for="RLF3" [forCheckBox]="true" style="margin-top: 5px"></label>
+                </div>
+                <div class="field">
+                    <label class="label">Del/Addr Control</label>
+                    <input soho-checkbox type="checkbox" id="RLF4" name="RLF4" [disabled]="protected" />
+                    <label soho-label for="RLF4" [forCheckBox]="true" style="margin-top: 5px"></label>
+                </div>
+                <div class="field">
+                    <label class="label">Element. Del Spec</label>
+                    <input soho-checkbox type="checkbox" id="RLF5" name="RLF5" [disabled]="protected" />
+                    <label soho-label for="RLF5" [forCheckBox]="true" style="margin-top: 5px"></label>
+                </div>
+                <div class="field">
+                    <label class="label">Ack Only Accept</label>
+                    <input soho-checkbox type="checkbox" id="RLF6" name="RLF6" [disabled]="protected" />
+                    <label soho-label for="RLF6" [forCheckBox]="true" style="margin-top: 5px"></label>
+                </div>
+                <div class="field">
+                  <label class="label">Change time</label>
+                  <input type="text" class="input-xs" name="LMTS" value="64820" readonly disabled />
+              </div>
+              </div>
+          </div>
+          <div class="twelve columns align-center margin-top-xl">
+              <button soho-button="tertiary" icon="cancel" [disabled]="protected"
+                (click)="protected = true">Cancel</button>
+                <span class="margin-left-lg margin-right-lg"></span>
+              <button soho-button="primary" icon="save" [disabled]="protected"
+                [isSubmit]="true">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

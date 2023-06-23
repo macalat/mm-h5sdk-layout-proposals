@@ -1,0 +1,21 @@
+.datagrid-container {
+  height: 300px;
+}
+
+.toolbar .title {
+  width: 20% !important;
+  min-width: 170px;
+}
+
+.toolbar .buttonset {
+  width: 80% !important;
+}
+
+.btn-primary {
+  font-weight: 400;
+}
+
+.field.with-action label {
+  min-width: 100px;
+}
+

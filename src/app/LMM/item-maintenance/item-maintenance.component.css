@@ -1,0 +1,99 @@
+#header {
+  border-bottom: 1px solid #B3B3B3;
+  background-color: #ffffff;
+}
+
+#main-container {
+  display: flex;
+  height: calc(100vh - 200px);
+  background-color: #f0f0f0;
+}
+  
+#search-sidebar {
+    flex: 0 0 300px;
+    background-color: #EBEBEB;
+    border-right: 1px solid #B3B3B3;
+    overflow-y: auto;
+    transition: all .3s;
+    padding-bottom: 20px;
+  }
+  /* Shrink width when an item is selected */
+  .item-selected #search-sidebar {
+    flex-basis: 40px;
+ }
+
+ .item-selected #search-sidebar .content {
+    display: none;
+ }
+  #search-sidebar .searchfield {
+      width: 260px;
+    }
+
+   #search-sidebar .fieldset-title {
+      border-bottom: 1px solid #D7D7D8;
+    }
+
+  #search-sidebar .searchfield-wrapper {
+      margin-bottom: 10px;
+    }
+
+  #search-sidebar .listview li.is-selected:not(.hide-selected-color) {
+      background-color: rgba(230, 241, 253, 0.7)
+    }
+   
+  #search-sidebar .listview li {
+      background-color: #F9F9F9;
+      padding: 10px 20px !important;
+    }
+  #search-sidebar .listview-subheading {
+       font-size: 1.4rem;
+    }
+  #search-sidebar .collapse-btn .icon {
+      width: 12px;
+      height: 12px;
+    }
+
+#main-data {
+  flex: 1 0 0;
+}
+  
+#link-sidebar {
+    flex: 0 0 240px;
+    background-color: #EBEBEB;
+    border-left: 1px solid #B3B3B3;
+    padding: 20px;
+    padding-right: 0;
+    overflow-y: auto;
+  }
+    /* Actions and Links */
+  #link-sidebar button.actions {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 5px;
+      border: none;
+    }
+    #link-sidebar button.actions:hover {
+        background-color: #F0F0F0;
+      }
+    #link-sidebar .actions[disabled]:hover {
+        background-color: transparent;
+      }
+
+    #link-sidebar .links li {
+      padding: 7px 0 7px 10px;
+    }
+
+    /* Group title */
+.group-title {
+  font-size: 1.6rem;
+  color: #56565B;
+  font-weight: 600;
+  /* margin-bottom: 8px; */
+}
+
+/* No Data */
+.no-data {
+  font-size: 1.4rem;
+  padding: 0;
+  text-align: center;
+}

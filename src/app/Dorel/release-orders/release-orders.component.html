@@ -1,0 +1,63 @@
+<app-header title="Release Orders Mashup"></app-header>
+
+<div class="full-width scrollable" style="height: calc(100vh - 60px);">
+  <div class="row">
+    <div class="twelve columns">
+      <div class="compound-field">
+        <div class="field">
+          <label soho-label class="padding-top-xs">Warehouse</label>
+          <select class="input-mm" soho-dropdown soho-busyindicator name="WHLO">
+            <option>001 - Main Warehouse</option>
+            <option>B01 - Ran Repo</option>
+          </select>
+          -
+          <select class="input-mm" soho-dropdown soho-busyindicator name="WHLO">
+            <option>001 - Main Warehouse</option>
+            <option>B01 - Ran Repo</option>
+          </select>
+        </div>
+
+        <div class="field margin-left-sm">
+          <label soho-label class="padding-top-xs">Status</label>
+          <select class="input-xs" soho-dropdown soho-busyindicator name="STAT">
+            <option>00</option>
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+          </select>
+          -
+          <select class="input-xs" soho-dropdown soho-busyindicator name="STAT">
+            <option>00</option>
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+          </select>
+        </div>
+
+        <div class="field margin-left-sm">
+          <label soho-label class="padding-top-xs">Consignee</label>
+          <input name="CONA" soho-lookup class="input-mm text-uppercase" />
+        </div>
+
+        <div class="field">
+          <label></label>
+          <button soho-button="secondary" icon="search">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row top-padding">
+    <div class="twelve columns">
+      <soho-toolbar [hasMoreButton]="true" [favorButtonset]="true" [rightAligned]="true">
+        <soho-toolbar-title>Deliveries</soho-toolbar-title>
+        <soho-toolbar-button-set>
+          <button soho-button="btn" icon="search" title="Select all for Pick Release">Sel all for Pick</button>
+          <button soho-button="btn" icon="confirm" title="Release for Picking">Release for Pick</button>
+        </soho-toolbar-button-set>
+        <soho-toolbar-more-button></soho-toolbar-more-button>
+      </soho-toolbar>
+      <div soho-datagrid="auto" [gridOptions]="gridOptions"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<app-header title="Customer Order Mashup"></app-header>
+
+<div class="full-width scrollable">
+  <div class="row-clear-fix">
+    <div class="eight columns margin-left-zero" style="height: calc(100vh - 100px); display: flex; flex-direction: column">
+      <div class="row-clear-fix" style="flex: 1">
+        <div class="one-half column">
+          <!-- <div class="m3-field">
+            <div class="field">
+              <h2 class="header-title" style="margin-bottom: 0">MMS002</h2>
+              <label class="label">Alias number</label>
+              <input type="text" class="input-mm" name="EDIF" />
+            </div>
+          </div> -->
+          <h2 class="header-title">MMS025</h2>
+          <div soho-datagrid="auto" [gridOptions]="mms025_gridOptions"></div>
+        </div>
+        <div class="one-half column">
+          <h2 class="header-title">MMS002</h2>
+          <div soho-datagrid="auto" [gridOptions]="mms002_gridOptions"></div>
+        </div>
+      </div>
+      
+      <div class="row-clear-fix" style="flex: 1">
+        <div class="twelve columns">
+          <div soho-tabs>
+            <div soho-tab-list-container>
+              <ul soho-tab-list>
+                <li soho-tab><a soho-tab-title tabId="tabs-MMS080">MMS080</a></li>
+                <li soho-tab><a soho-tab-title tabId="tabs-MMS081">MMS081</a></li>
+                <li soho-tab><a soho-tab-title tabId="tabs-MWS068">MWS068</a></li>
+                <li soho-tab><a soho-tab-title tabId="tabs-MWS070">MWS070</a></li>
+                <li soho-tab><a soho-tab-title tabId="tabs-OIS302">OIS302</a></li>
+                <li soho-tab><a soho-tab-title tabId="tabs-Salesprice">Sales price</a></li>
+                <li soho-tab><a soho-tab-title tabId="tabs-OIS005">OIS005</a></li>
+                <li soho-tab><a soho-tab-title tabId="tabs-MMS015">MMS015</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div soho-tab-panel-container>
+            <div soho-tab-panel tabId="tabs-MMS080">
+              <div soho-datagrid="auto" [gridOptions]="mms080_gridOptions"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="four columns">
+      <div soho-tabs>
+        <div soho-tab-list-container>
+          <ul soho-tab-list>
+            <li soho-tab><a soho-tab-title tabId="tabs-MMS001">MMS001</a></li>
+            <li soho-tab><a soho-tab-title tabId="tabs-MMS002-MMS003">MMS002 / MMS003</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="m3-field padding-left-lg">
+        <div class="field" *ngFor="let field of fields">
+          <label class="label">{{ field.name }}</label>
+          <input type="text" [class]="field.class" [value]="field.value" readonly disabled />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

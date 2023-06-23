@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap');
+
+html body {
+  /* background-color: #f0f0f0; */
+  height: 100%;
+}
+
+.datagrid-container {
+  background-color: #ffffff;
+  height: 350px;
+}
+
+/*============================================================
+ * For Master detail presentation layout
+ ============================================================*/
+.main-container {
+	height: calc(100vh - 60px);
+	display: flex;
+	flex-direction: column;
+  padding: 20px 20px 0 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media (max-width: 766px) {
+  .main-container {
+    padding-right: 0;
+  }
+} 
+  .main-container>.header-filter {
+    margin-top: -20px; /** Offset the top padding of main-container */
+  }
+    .main-container>.header-filter .accordion-header {
+      border: none;
+      height: 30px;
+      text-align: right;
+    }
+
+    .main-container>.header-filter .accordion-header.is-focused:not(.hide-focus),
+    .main-container>.header-filter .accordion-header > [class^='btn']:focus:not(.hide-focus) {
+      border: none;
+      box-shadow: none;
+    }
+
+    .main-container>.header-filter .accordion-header.has-chevron > [class^='btn'] {
+      margin-left: 10px;
+      width: 18px;
+    }
+
+    .main-container>.header-filter .accordion-pane .accordion-content {
+      padding: 0;
+    }
+
+  .main-container .filter-head {
+      margin-top: 25px;
+      margin-bottom: 15px;
+   }
+
+	.main-container .list-detail-container {
+		flex: 1;
+      height: 100px;
+	}
+    .main-container .data-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+	.list-datagrid-container {
+		flex: 1;
+    height: calc(100% - 91px);
+    min-height: 450px;
+	}
+    .list-datagrid-container.no-toolbar {
+      height: calc(100% - 46px);
+    }
+		.list-datagrid-container .datagrid-container {
+			height: inherit;
+		}
+
+   .detail-form-container {
+      flex: 1;
+      height: 100%;
+      min-height: 450px;
+   }
+      .detail-form-container .detail-form {
+         display: flex;
+         flex-direction: column;
+         position: relative;
+         height: 100%;
+      }
+         .detail-form .detail-head {
+            padding-bottom: 20px;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #b3b3b3
+         }
+            .detail-form .title {
+               font-size: 2rem;
+               margin: 20px
+            }
+
+         .detail-form .detail-body {
+            overflow: auto;
+            flex: 1;
+            padding-left: 20px;
+            padding-right: 10px;
+         }
+
+  .data-container .navigation-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+         
+
+/*============================================================
+ * Replicate H5's compact layout
+ ============================================================*/
+ .m3-field .field {
+  display: flex;
+  font-size: 1.6rem;
+  margin: 2px 0;
+  margin-right: 40px;
+}  
+  .m3-field .field:last-child {
+     margin-bottom: 0;
+  }
+  .m3-field .field.center {
+     justify-content: center;
+  }
+
+.m3-field > .field {
+  margin: 4px 0;
+}
+
+.m3-field .label {
+  line-height: normal;
+  padding-right: 8px;
+  position: relative;
+  width: 160px;
+  margin: 4px 0;
+  text-align: left;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  padding-top: 1px;
+}
+  .m3-field .label.auto {
+     width: auto;
+     min-width: 110px;
+     max-width: 160px;
+  }
+
+  .m3-field .label.align-right {
+     text-align: right;
+  }
+
+  .m3-field .label::after {
+     content: ':';
+  }
+
+  .m3-field span.additional-info {
+     margin: 4px 0 4px 8px;
+     max-width: 300px;
+     font-style: italic;
+     font-size: 1.4rem;
+     padding-top: 1px;
+  }
+
+.m3-field .field input, .m3-field .field .dropdown {
+  height: 2.8rem;
+  padding: 0 5px;
+  font-size: 1.4rem;
+}
+  .m3-field .dropdown > span:not(.tag-list),
+  .m3-field .multiselect > span:not(.tag-list) {
+     padding-top: 4px;
+  }
+  .m3-field .dropdown-wrapper .icon {
+     background: transparent !important;
+     height: 24px;
+     right: 4px;
+     top: 3px;
+     width: 16px;
+  }
+
+.m3-field .lookup-wrapper .lookup.is-not-editable {
+  background-color: #D7D7D8;
+}
+.m3-field .field .lookup-wrapper .trigger {
+  height: 20px;
+  margin-left: -26px;
+  margin-top: 2px;
+  min-height: 20px;
+  min-width: 20px;
+  width: 20px;
+}
+
+.m3-field .datepicker + .trigger {
+  position: relative;
+  margin-top: 2px;
+}
+
+.m3-field .icon-dirty {
+  position: relative;
+  left: 11px;
+  margin-left: -8px;
+  margin-top: 3px;
+}
+
+.field.hide-required .error-message {
+  display: none;
+}
+
+
+.listview li.inline-item {
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.listview li.inline-item p {
+  /* width: 100% !important; */
+  font-size: 1.4rem;
+}
+
+.row-clear-fix {
+  clear: both !important;
+}
+  .row-clear-fix::after {
+     clear: both !important;
+     content: '' !important;
+     display: table !important;
+  }
+
+.compound-field .field.gap {
+  margin-right: 40px;
+}
+
+/*
+ * Datagrid inline input editor
+ */
+ .datagrid .has-editor .datagrid-cell-wrapper {
+  padding: 1px 2px !important;
+}
+  .datagrid .has-editor .datagrid-cell-wrapper input {
+     padding: 0 7px;
+     width: 100%;
+  }
+     .datagrid.extra-small-rowheight .has-editor .datagrid-cell-wrapper input {
+        height: 24px;
+     }
+     .datagrid.small-rowheight .has-editor .datagrid-cell-wrapper input {
+        height: 27px;
+     }
+     .datagrid.medium-rowheight .has-editor .datagrid-cell-wrapper input {
+        height: 32px;
+     }
+  .datagrid .has-editor .datagrid-cell-wrapper .hide-editor {
+     padding: 2px 8px 0;
+  }
+
+ /* Group title */
+.group-title {
+  font-size: 1.6rem;
+  color: #56565B;
+  font-weight: 600;
+  /* margin-bottom: 8px; */
+}
+ 
+/* Fix on datagrid last row's bottom border missing when inside an inactive tab */
+.datagrid-container tr:last-child td {
+  border-bottom: 1px solid #bdbdbd !important;
+}
+
+/* #########################################################################
+ *            LMM Item Maintenance
+ * #########################################################################
+ */
+app-item-maintenance #search-sidebar .collapse-btn .icon {
+  width: 12px;
+  height: 12px;
+}
+
+/* List view on search panel */
+app-item-maintenance #search-sidebar .listview li.is-selected:not(.hide-selected-color) {
+  background-color: rgba(230, 241, 253, 0.7)
+}
+
+app-item-maintenance #search-sidebar .listview li {
+  background-color: #F9F9F9;
+  padding: 10px 20px;
+ }
+app-item-maintenance  #search-sidebar .listview-subheading {
+  font-size: 1.4rem;
+ }
+
+ /* List views in Tabs */
+app-item-maintenance .listview li.inline-item {
+  padding: 2px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+app-item-maintenance .listview li.inline-item .stat {
+  margin-top: 0;
+  padding: 5px 12px;
+  background: #D7D7D8;
+  border-radius: 15px;
+  font-size: 1.4rem;
+ }
+
+app-item-maintenance .listview li.inline-item .listview-heading {
+  font-size: 1.4rem;
+}
+
+app-item-maintenance .tab-panel {
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+
+/* #########################################################################
+ *            LMM Planned PO
+ * #########################################################################
+ */
+
+app-planned-po .datagrid-wrapper {
+  height: auto;
+}
+
+app-planned-po .datagrid-container {
+  max-height: 350px !important;
+}
+
+/* Hide hover backround for non selectable row */
+#mms080-grid tr.is-hover-row td,
+#ppo-aggregated-grid tr.is-hover-row td {
+  background-color: transparent !important;
+}
+
+/* Make Group header row taller */
+#ppo-aggregated-grid tr.datagrid-rowgroup-header {
+  height: 45px;
+}
+
+/* Update group header button and icon's color */
+#ppo-aggregated-grid .datagrid-rowgroup-header td .group-header-button span,
+#ppo-aggregated-grid .datagrid-rowgroup-header td .group-header-button .icon {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+#ppo-grid .has-editor .datagrid-cell-wrapper {
+  padding: 3px 4px !important;
+}
+.has-editor input {
+  height: 3.2rem;
+}
+
+/* #########################################################################
+ *            LMM WO Reporting Portal
+ * #########################################################################
+ */
+/* 
+ * Icons and fonts are too big for me on Uplift theme.
+ * Remove the bold text in buttons and reduce button's icon size
+ *
+ */
+app-wo-reporting-portal [class^='btn'] {
+  font-weight: 400;
+}
+
+app-wo-reporting-portal [class^='btn'] > .icon,
+app-wo-reporting-portal-2 [class^='btn'] > .icon {
+  width: 16px !important;
+}
+
+app-wo-reporting-portal .button-set {
+  background-color: #0072ed;
+}
+
+app-wo-reporting-portal .button-set > .btn-primary {
+  /* margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 0 20px; */
+  border-radius: 0;
+  margin-right: 0;
+}
+
+/* #########################################################################
+ *            Dorel Release Orders
+ * #########################################################################
+ */
+
+
+
+/* #########################################################################
+ *            Utils
+ * #########################################################################
+ */
+.margin-top-xs {
+  margin-top: 5px;
+}
+
+.margin-bottom-xs {
+  margin-bottom: 5px;
+}
+
+.margin-left-xs {
+  margin-left: 5px;
+}
+
+.margin-right-xs {
+  margin-right: 5px;
+}
+
+.margin-top-sm {
+  margin-top: 10px;
+}
+
+.margin-bottom-sm {
+  margin-bottom: 10px;
+}
+
+.margin-left-sm {
+  margin-left: 10px;
+}
+
+.margin-right-sm {
+  margin-right: 10px;
+}
+
+.margin-top-md {
+  margin-top: 15px;
+}
+
+.margin-bottom-md {
+  margin-bottom: 15px;
+}
+
+.margin-left-md {
+  margin-left: 15px;
+}
+
+.margin-right-md {
+  margin-right: 15px;
+}
+
+.margin-right-sm {
+  margin-right: 10px;
+}
+
+.margin-top-lg {
+  margin-top: 20px;
+}
+
+.margin-bottom-lg {
+  margin-bottom: 20px;
+}
+
+.margin-left-lg {
+  margin-left: 20px;
+}
+
+.margin-right-lg {
+  margin-right: 20px;
+}
+
+.margin-top-xl {
+  margin-top: 25px;
+}
+
+.margin-bottom-xl {
+  margin-bottom: 25px;
+}
+
+.margin-left-xl {
+  margin-left: 25px;
+}
+
+.margin-right-xl {
+  margin-right: 25px;
+}
+
+.margin-top-zero {
+  margin-top: 0 !important;
+}
+
+.margin-bottom-zero {
+  margin-bottom: 0 !important;
+}
+
+.margin-left-zero {
+  margin-left: 0 !important;
+}
+
+.margin-right-zero {
+  margin-right: 0 !important;
+}
+
+.padding-top-xs {
+  padding-top: 5px;
+}
+
+.padding-bottom-xs {
+  padding-bottom: 5px;
+}
+
+.padding-left-xs {
+  padding-left: 5px;
+}
+
+.padding-right-xs {
+  padding-right: 5px;
+}
+
+.padding-top-sm {
+  padding-top: 10px;
+}
+
+.padding-bottom-sm {
+  padding-bottom: 10px;
+}
+
+.padding-left-sm {
+  padding-left: 10px;
+}
+
+.padding-right-sm {
+  padding-right: 10px;
+}
+
+.padding-top-md {
+  padding-top: 15px;
+}
+
+.padding-bottom-md {
+  padding-bottom: 15px;
+}
+
+.padding-left-md {
+  padding-left: 15px;
+}
+
+.padding-right-md {
+  padding-right: 15px;
+}
+
+.padding-right-sm {
+  padding-right: 10px;
+}
+
+.padding-top-lg {
+  padding-top: 20px;
+}
+
+.padding-bottom-lg {
+  padding-bottom: 20px;
+}
+
+.padding-left-lg {
+  padding-left: 20px;
+}
+
+.padding-right-lg {
+  padding-right: 20px;
+}
+
+.padding-top-xl {
+  padding-top: 25px;
+}
+
+.padding-bottom-xl {
+  padding-bottom: 25px;
+}
+
+.padding-left-xl {
+  padding-left: 25px;
+}
+
+.padding-right-xl {
+  padding-right: 25px;
+}
+
+.padding-top-zero {
+  padding-top: 0 !important;
+}
+
+.padding-bottom-zero {
+  padding-bottom: 0 !important;
+}
+
+.padding-left-zero {
+  padding-left: 0 !important;
+}
+
+.padding-right-zero {
+  padding-right: 0 !important;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.input-xl {
+  width: 550px;
+}

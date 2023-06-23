@@ -1,0 +1,307 @@
+<app-header title="Item Maintenance"></app-header>
+
+<div id="header" #header>
+  <div class="full-width">
+    <div class="row-clear-fix">
+      <div class="five columns margin-left-zero">
+        <div class="m3-field">
+            <div class="field">
+              <label class="label auto">Item number</label>
+              <input type="text" value="TKQ0001" class="input-sm" disabled readonly />
+              <input class="input-lg" style="margin-left: 8px;" vale="RELÄ 12V 2X15A BILD A 87/87B PORT ABC" name="ITDS" maxlength="60" />
+            </div>
+
+            <div class="field">
+              <label class="label auto">Supplier no</label>
+              <input type="text" value="11281" class="input-sm" readonly disabled/>
+              <span class="additional-info">SHENZHEN WELL-DONE INDUSTRIAL CO.LTD</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="seven columns">
+        <div class="m3-field">
+          <div class="field margin-right-zero" style="flex-grow: 1;">
+            <label class="label auto">Description</label>
+            <input name="FUDS" maxlength="120" style="flex-grow: 1; min-width: 200px; max-width: 550px;" />
+          </div>
+
+          <div class="field" style="margin-bottom: 4px;">
+            <label class="label auto">Status</label>
+            <select soho-dropdown class="input-mm"  [cssClass]="'dropdown-short'" name="ORTP">
+              <option>20 - Released</option>
+          </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-clear-fix">
+      <div class="two columns margin-left-zero">
+        <div class="m3-field">
+            <div class="field margin-top-zero">
+              <label class="label auto">Basic UM</label>
+              <input type="text" value="KG" class="input-xs" readonly disabled/>
+              <!-- <span class="additional-info">Kilo</span> -->
+            </div>
+        </div>
+      </div>
+
+      <div class="three columns">
+        <div class="m3-field">
+            <div class="m3-field">
+              <div class="field margin-top-zero">
+                  <label class="label auto">Item group</label>
+                  <input soho-lookup soho-lookup class="input-sm text-uppercase" maxlength="8" value="2180" />
+                  <span class="additional-info">Sowing machines</span>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="seven columns">
+        <div class="m3-field">
+            <div class="field margin-top-zero">
+              <label class="label auto">Grp tech class</label>
+              <input soho-lookup soho-lookup soho-lookup name="GRTI" class="input-sm text-uppercase" maxlength="10" />
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-container" [ngClass]="{ 'item-selected': itemSelected }"> 
+  <div id="search-sidebar">
+    <div *ngIf="itemSelected">
+      <button soho-button="icon" icon="search" (click)="toggleSearchPanel()"></button>
+    </div>
+
+    <div class="content">
+
+      <div class="align-right">
+        <button soho-button="icon" icon="collapse-app-tray" class="collapse-btn" (click)="toggleSearchPanel()"></button>
+      </div>
+      <div class="margin-left-lg margin-bottom-md">
+        <input soho-searchfield placeholder="Search Item" [clearable]="true" />
+      </div>
+  
+      
+  
+      <div class="fieldset-title padding-left-lg padding-top-sm">M3</div>
+      
+      <div style="max-height: 500px" class="scrollable-y">
+        <soho-listview>
+          <li soho-listview-item>
+            <p soho-listview-header>ITEM0001</p>
+            <p soho-listview-subheader>Sample item 1</p>
+          </li>
+          <li soho-listview-item>
+            <p soho-listview-header>ITEM0002</p>
+            <p soho-listview-subheader>Sample item 2</p>
+          </li>
+          <li soho-listview-item>
+            <p soho-listview-header>ITEM0003</p>
+            <p soho-listview-subheader>Sample item 3</p>
+          </li>
+          <li soho-listview-item>
+            <p soho-listview-header>ITEM0004</p>
+            <p soho-listview-subheader>Sample item 4</p>
+          </li>
+          <li soho-listview-item>
+            <p soho-listview-header>ITEM0005</p>
+            <p soho-listview-subheader>Sample item 5</p>
+          </li>
+        </soho-listview>
+      </div>
+  
+      <div class="fieldset-title padding-left-lg">IDI</div>
+        
+      <div style="max-height: 500px" class="scrollable-y">
+        <soho-listview>
+          <li soho-listview-item>
+            <p soho-listview-header>INT_ITEM01</p>
+            <p soho-listview-subheader>Interface item 1</p>
+          </li>
+          <li soho-listview-item>
+            <p soho-listview-header>INT_ITEM02</p>
+            <p soho-listview-subheader>Interface item 2</p>
+          </li>
+          <li soho-listview-item>
+            <p soho-listview-header>INT_ITEM03</p>
+            <p soho-listview-subheader>Interface item 3</p>
+          </li>
+          <li soho-listview-item>
+            <p soho-listview-header>INT_ITEM04</p>
+            <p soho-listview-subheader>Interface item 4</p>
+          </li>
+          <li soho-listview-item>
+          <p soho-listview-header>INT_ITEM05</p>
+          <p soho-listview-subheader>Interface item 5</p>
+        </li>
+        </soho-listview>
+      </div>
+    </div>
+  </div>
+  <div id="main-data">
+    <div soho-tabs>
+      <div soho-tab-list-container>
+        <ul soho-tab-list>
+          <li soho-tab><a soho-tab-title tabId="tabs-detail">Detail</a></li>
+          <li soho-tab><a soho-tab-title tabId="tabs-warehouse">Warehouse</a></li>
+          <li soho-tab><a soho-tab-title tabId="tabs-purchase">Purchase</a></li>
+          <li soho-tab><a soho-tab-title tabId="tabs-pricelist">Price List</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div soho-tab-panel-container class="scrollable" style="max-width: calc(100vw - 40px); height: calc(100vh - 240px);">
+      <div soho-tab-panel tabId="tabs-detail">
+        <div class="row-clear-fix">
+          <div class="four columns">
+            <div class="m3-field">
+              <div class="field">
+                  <label class="label">Supplier item</label>
+                  <input type="text" value="PIAWE001" name="SITE" readonly disabled />
+              </div>
+              <div class="field">
+                  <label class="label">Alias number</label>
+                  <input type="text" value="TKQ0001_PPAO" name="POPN" readonly disabled />
+              </div>
+              <div class="field">
+                  <label class="label">Visibility E2</label>
+                  <input type="text" value="MLA" name="CFI3" class="input-xs" maxlength="3" />
+              </div>
+              <div class="field">
+                  <label class="label">Discount group</label>
+                  <input value="SE" soho-lookup soho-lookup field="CTSTKY" vale="LA" name="DIGI" class="input-xs text-uppercase" maxlength="2" />
+              </div>
+              <div class="field">
+                  <label class="label">Costing markup</label>
+                  <input type="text" value="2,00" name="OVHE" class="input-xs" readonly disabled />
+              </div>
+            </div>
+          </div>
+          <div class="four columns">
+            <h3 class="group-title">Replaced By</h3>
+            <p class="no-data">No data available</p>
+            
+            <h3 class="group-title">Replaces</h3>
+            <div style="max-height: 160px;" class="scrollable">
+              <soho-listview [selectable]="false">
+                  <li soho-listview-item class="inline-item">
+                    <a class="listview-heading hyperlink">TKQ00002</a>
+                    <p class="stat">REPLACED</p>
+                  </li>
+                  <li soho-listview-item class="inline-item">
+                    <a class="listview-heading hyperlink">UAA001_001</a>
+                    <p class="stat">REPLACED</p>
+                  </li>
+                  <li soho-listview-item class="inline-item">
+                    <a class="listview-heading hyperlink">1.9SS</a>
+                    <p class="stat">REPLACED</p>
+                  </li>
+              </soho-listview>
+            </div>
+
+            <h3 class="group-title">Replaces IDI</h3>
+            <p class="no-data">No data available</p>
+          </div>
+
+          <div class="four columns">
+            <div class="m3-field">
+              <div class="field center">
+                  <label class="label">Responsible</label>
+                  <input type="text" value="MMAKKE" name="RESP" class="input-sm" readonly disabled />
+              </div>
+              <div class="field center">
+                  <label class="label">Buyer</label>
+                  <input type="text" value="YEEOAW" name="MBRESP" class="input-sm" readonly disabled />
+              </div>
+              <div class="field center">
+                  <label class="label">Entry date</label>
+                  <input type="text" value="20220101" name="RGDT" class="input-sm" readonly disabled />
+              </div>
+              <div class="field center">
+                  <label class="label">Changed date</label>
+                  <input type="text" value="20220324" name="LMDT" class="input-sm" readonly disabled />
+              </div>
+              <div class="field center">
+                  <label class="label">Changed by</label>
+                  <input type="text" value="MMAKKE" name="CHID" class="input-sm" readonly disabled />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-clear-fix">
+          <div class="twelve columns margin-bottom-md">
+             <hr class="fieldset-hr">
+          </div>
+        </div>
+        <div class="row-clear-fix">
+          <div class="twelve columns">
+            <div class="whlo-grid"
+              soho-datagrid="auto"
+              [filterable]="true"
+              [rowHeight]="'small'"
+              [selectable]="'mixed'"
+              [columns]="columns"
+              [data]="[
+                { WHLO: 'A01', WHNM: 'Main Warehouse', WHSL: 'STOCK', STQT: '150', ALQT: '12.5', REQT: '10', AV01: '0', ORQT: '10', USYE: '320.15' },
+                { WHLO: 'B01', WHNM: 'Local Branch', WHSL: 'STOCK', STQT: '123', ALQT: '50', REQT: '20', AV01: '10', ORQT: '10', USYE: '390' },
+                { WHLO: 'BLL', WHNM: 'Regional DC', WHSL: 'STOCK', STQT: '3315', ALQT: '22', REQT: '30', AV01: '5', ORQT: '21', USYE: '511.0' },
+                { WHLO: 'L01', WHNM: 'Mobile WHS for Service', WHSL: 'STOCK', STQT: '9900', ALQT: '0', REQT: '20', AV01: '0', ORQT: '10', USYE: '1000' },
+                { WHLO: 'S02', WHNM: 'Consolidated Warehouse', WHSL: 'STOCK', STQT: '200', ALQT: '91', REQT: '15', AV01: '0', ORQT: '10', USYE: '351' }
+              ]"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div soho-tab-panel tabId="tabs-warehouse">
+        <div class="row-clear-fix">
+          <div class="twelve columns">
+            <p>Warehouse information</p>
+          </div>
+        </div>
+      </div>
+
+      <div soho-tab-panel tabId="tabs-purchase">
+        <div class="row-clear-fix">
+          <div class="twelve columns">
+            <p>Purchase information</p>
+          </div>
+        </div>
+      </div>
+
+      <div soho-tab-panel tabId="tabs-pricelist">
+        <div class="row-clear-fix">
+          <div class="twelve columns">
+            <div soho-datagrid="auto" style="height: calc(100vh - 310px)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="link-sidebar">
+    <div class="fieldset-title padding-top-zero padding-bottom-md">Actions</div>
+    <div style="max-height: 300px" class="scrollable-y padding-right-md">
+      <button class="btn-tertiary hide-focus actions">Activate</button>
+      <button class="btn-tertiary hide-focus actions">Import To M3</button>
+      <button class="btn-tertiary hide-focus actions">Create Item</button>
+    </div>
+    
+    <div class="fieldset-title">Links</div>
+    <ul class="links scrollable-y" style="max-height: 500px">
+      <li><a class="hyperlink" title="MMS080">Material plan</a></li>
+      <li><a class="hyperlink" title="PPS100">Purchase agreement</a></li>
+      <li><a class="hyperlink" title="OIS017">Sales price list</a></li>
+      <li><a class="hyperlink" title="MWS068">Balance identity toolbox</a></li>
+      <li><a class="hyperlink" title="MWS070">Stock transaction</a></li>
+      <li><a class="hyperlink" title="MMS090">Items statistics</a></li>
+      <li><a class="hyperlink" title="PDS001">Product structure</a></li>
+    </ul>
+  </div>
+</div>

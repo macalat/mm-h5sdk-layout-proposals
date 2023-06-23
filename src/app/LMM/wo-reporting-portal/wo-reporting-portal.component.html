@@ -1,0 +1,155 @@
+<app-header title="WO Reporting Portal"></app-header>
+
+<div class="full-width scrollable" style="height: calc(100vh - 60px);">
+  <div class="row">
+    <div class="twelve columns">
+      <div class="compound-field">
+        <div class="field">
+          <label soho-label class="padding-top-xs">Facility</label>
+          <select
+            soho-dropdown
+            soho-busyindicator
+            name="WHLO"
+          >
+          </select>
+        </div>
+
+        <div class="field">
+          <label soho-label class="padding-top-xs">Employee</label>
+          <input name="EMNO" class="input-mm text-uppercase" />
+        </div>
+
+        <div class="field">
+          <label soho-label class="padding-top-xs">WO number</label>
+          <input name="MFNO" class="input-mm text-uppercase" />
+        </div>
+
+        <div class="field">
+          <label></label>
+          <button soho-button="primary" icon="search">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <div class="title">Work Schedule</div>
+      <div
+        soho-datagrid="auto"
+        [rowHeight]="'medium'"
+        [selectable]="'mixed'"
+        [columns]="[
+          { id: 'COL1', field: 'COL1', name: 'Column 1' },
+          { id: 'COL2', field: 'COL2', name: 'Column 2' },
+          { id: 'COL3', field: 'COL3', name: 'Column 3' },
+          { id: 'COL4', field: 'COL4', name: 'Column 4' },
+          { id: 'COL5', field: 'COL5', name: 'Column 5' },
+          { id: 'COL6', field: 'COL6', name: 'Column 6' },
+          { id: 'COL7', field: 'COL7', name: 'Column 7' },
+          { id: 'COL8', field: 'COL8', name: 'Column 8' },
+          { id: 'COL9', field: 'COL9', name: 'Column 9' },
+          { id: 'COL10', field: 'COL10', name: 'Column 10' },
+          { id: 'COL11', field: 'COL11', name: 'Column 11' },
+          { id: 'COL12', field: 'COL12', name: 'Column 12' },
+          { id: 'COL13', field: 'COL13', name: 'Column 13' },
+          { id: 'COL14', field: 'COL14', name: 'Column 14' },
+          { id: 'COL14', field: 'COL14', name: 'Column 15' },
+          { id: 'COL14', field: 'COL14', name: 'Column 16' },
+          { id: 'COL14', field: 'COL14', name: 'Column 17' },
+          { id: 'COL14', field: 'COL14', name: 'Column 18' },
+          { id: 'COL14', field: 'COL14', name: 'Column 19' },
+          { id: 'COL14', field: 'COL14', name: 'Column 20' },
+          { id: 'COL14', field: 'COL14', name: 'Column 21' },
+          { id: 'COL14', field: 'COL14', name: 'Column 22' },
+          { id: 'COL14', field: 'COL14', name: 'Column 23' },
+        ]"
+        [dataset]="[
+           { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: 'Violet', COL8: 'Fuchsia', COL9: 'Magenta', COL10: 'Brown', COL11: 'Blank', COL12: 'Teal', COL13: 'Gold', COL14: 'Pink' },
+           { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: 'Violet', COL8: 'Fuchsia', COL9: 'Magenta', COL10: 'Brown', COL11: 'Blank', COL12: 'Teal', COL13: 'Gold', COL14: 'Pink' },
+           { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: 'Violet', COL8: 'Fuchsia', COL9: 'Magenta', COL10: 'Brown', COL11: 'Blank', COL12: 'Teal', COL13: 'Gold', COL14: 'Pink' },
+           { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: 'Violet', COL8: 'Fuchsia', COL9: 'Magenta', COL10: 'Brown', COL11: 'Blank', COL12: 'Teal', COL13: 'Gold', COL14: 'Pink' },
+           { COL1: 'Red', COL2: 'Orange', COL3: 'Yellow', COL4: 'Green', COL5: 'Blue', COL6: 'Indigo', COL7: 'Violet', COL8: 'Fuchsia', COL9: 'Magenta', COL10: 'Brown', COL11: 'Blank', COL12: 'Teal', COL13: 'Gold', COL14: 'Pink' },
+          ]"
+      ></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <div class="button-set">
+        <button soho-button="primary" icon="edit">Change</button>
+        <button soho-button="primary" icon="new-schedule">Reschedule</button>
+        <button soho-button="primary" icon="create-report">Report</button>
+        <button soho-button="primary" icon="design-mode">Meters</button>
+        <button soho-button="primary" icon="tools">Operation</button>
+        <button soho-button="primary" icon="close">Close Op</button>
+        <button soho-button="primary" icon="close-cancel">Close WO</button>
+        <button soho-button="primary" icon="history">History</button>
+        <button soho-button="primary" icon="document">Invoice Spec</button>
+        <button soho-button="primary" icon="invoicing">Invoice</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row top-padding margin-bottom-zero">
+    <div class="nine columns">
+      <div class="title">Materials</div>
+      <div
+        soho-datagrid="auto"
+        [rowHeight]="'medium'"
+        [selectable]="'mixed'"
+        [columns]="[
+          { id: 'COL1', field: 'COL1', name: 'Column 1' },
+          { id: 'COL2', field: 'COL2', name: 'Column 2' },
+          { id: 'COL3', field: 'COL3', name: 'Column 3' },
+          { id: 'COL4', field: 'COL4', name: 'Column 4' },
+          { id: 'COL5', field: 'COL5', name: 'Column 5' },
+          { id: 'COL6', field: 'COL6', name: 'Column 6' },
+          { id: 'COL7', field: 'COL7', name: 'Column 7' },
+          { id: 'COL8', field: 'COL8', name: 'Column 8' },
+          { id: 'COL9', field: 'COL9', name: 'Column 9' },
+          { id: 'COL10', field: 'COL10', name: 'Column 10' },
+          { id: 'COL11', field: 'COL11', name: 'Column 11' },
+          { id: 'COL12', field: 'COL12', name: 'Column 12' },
+          { id: 'COL13', field: 'COL13', name: 'Column 13' },
+        ]"
+        [dataset]="[
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+           { COL1: 'Cat', COL2: 'Dog', COL3: 'Elephant', COL4: 'Tiger', COL5: 'Eagle', COL6: 'Spider', COL7: 'Lamb', COL8: 'Great white shark', COL9: 'Hamster', COL10: 'Parrot', COL11: 'Turtle', COL12: 'Otter', COL13: 'Zebra' },
+          ]"
+      ></div>
+
+      <div class="button-set">
+        <button soho-button="primary" icon="expense-report">Expenses</button>
+        <button soho-button="primary" icon="edit">Change</button>
+        <button soho-button="primary" icon="select">Pick</button>
+        <button soho-button="primary" icon="down-arrow">Receive</button>
+        <button soho-button="primary" icon="report">Report</button>
+        <button soho-button="primary" icon="warehouse">Supply Chain</button>
+      </div>
+    </div>
+    <div class="three columns">
+      <div class="title">MO Texts</div>
+      <textarea style="height: 300px; width: 100%" readonly>
+There is a tide in the affairs of men, Which taken at the flood, leads on to fortune. Omitted, all the voyage of their life is bound in shallows and in miseries. On such a full sea are we now afloat. And we must take the current when it serves, or lose our ventures.
+      </textarea>
+      <div class="button-set align-right" style="margin-top: -4px">
+        <button soho-button="primary" icon="edit">Edit</button>
+        <button soho-button="primary" icon="save">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
